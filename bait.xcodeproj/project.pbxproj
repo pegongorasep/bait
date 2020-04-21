@@ -13,6 +13,8 @@
 		B8399277244F839E0029F6BD /* TicketsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8399276244F839E0029F6BD /* TicketsAPI.swift */; };
 		B8399279244F96030029F6BD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8399278244F96030029F6BD /* Constants.swift */; };
 		B839927B244F9A1C0029F6BD /* Complaints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B839927A244F9A1C0029F6BD /* Complaints.swift */; };
+		B839927F244FADDE0029F6BD /* TicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B839927E244FADDE0029F6BD /* TicketCell.swift */; };
+		B8399281244FADF10029F6BD /* TicketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8399280244FADF10029F6BD /* TicketCell.xib */; };
 		B844ECBB244F67CC00FE8668 /* TokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B844ECBA244F67CC00FE8668 /* TokenAdapter.swift */; };
 		B8AE076F244F37FC00DCEA80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE076E244F37FC00DCEA80 /* AppDelegate.swift */; };
 		B8AE0771244F37FC00DCEA80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE0770244F37FC00DCEA80 /* SceneDelegate.swift */; };
@@ -38,6 +40,8 @@
 		B8399276244F839E0029F6BD /* TicketsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsAPI.swift; sourceTree = "<group>"; };
 		B8399278244F96030029F6BD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B839927A244F9A1C0029F6BD /* Complaints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Complaints.swift; sourceTree = "<group>"; };
+		B839927E244FADDE0029F6BD /* TicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCell.swift; sourceTree = "<group>"; };
+		B8399280244FADF10029F6BD /* TicketCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketCell.xib; sourceTree = "<group>"; };
 		B844ECBA244F67CC00FE8668 /* TokenAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAdapter.swift; sourceTree = "<group>"; };
 		B8AE076B244F37FC00DCEA80 /* bait.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bait.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8AE076E244F37FC00DCEA80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +98,22 @@
 			path = Tickets;
 			sourceTree = "<group>";
 		};
+		B839927C244FADC50029F6BD /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		B839927D244FADCB0029F6BD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B839927E244FADDE0029F6BD /* TicketCell.swift */,
+				B8399280244FADF10029F6BD /* TicketCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		B8AE0762244F37FB00DCEA80 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +135,8 @@
 		B8AE076D244F37FC00DCEA80 /* bait */ = {
 			isa = PBXGroup;
 			children = (
+				B839927D244FADCB0029F6BD /* Cells */,
+				B839927C244FADC50029F6BD /* New Group */,
 				B8AE0786244F424900DCEA80 /* API */,
 				B8AE0789244F466C00DCEA80 /* Models */,
 				B8AE0794244F4A2800DCEA80 /* ViewControllers */,
@@ -241,6 +263,7 @@
 				B8AE077D244F37FC00DCEA80 /* LaunchScreen.storyboard in Resources */,
 				B8AE077A244F37FC00DCEA80 /* Assets.xcassets in Resources */,
 				B8AE0778244F37FC00DCEA80 /* Main.storyboard in Resources */,
+				B8399281244FADF10029F6BD /* TicketCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +320,7 @@
 				B8AE0785244F415E00DCEA80 /* LogInViewController.swift in Sources */,
 				B8399274244F838B0029F6BD /* Tickets.swift in Sources */,
 				B8AE0773244F37FC00DCEA80 /* CommunityViewController.swift in Sources */,
+				B839927F244FADDE0029F6BD /* TicketCell.swift in Sources */,
 				B8AE078B244F468300DCEA80 /* UserAPI.swift in Sources */,
 				B839927B244F9A1C0029F6BD /* Complaints.swift in Sources */,
 				B8399279244F96030029F6BD /* Constants.swift in Sources */,

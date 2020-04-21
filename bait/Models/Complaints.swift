@@ -18,20 +18,19 @@ struct ComplaintItem: Codable {
     let description: String
     let user_id: Int
     var complaint_state_id: Int
-    let complaint_type_id: String?
-    let condominium_id: String
+    let complaint_type_id: Int?
+    let condominium_id: Int
     let created_at: String
     let updated_at: String
     let complaint_state: ComplaintState
-    let user: User
+    let user: User?
 }
 
 struct ComplaintState: Codable {
     let id: Int
     let name: String
     let icon: String
-    let user_id: Int
+    let color: String
     let created_at: String
     let updated_at: String
 }
-

@@ -13,5 +13,16 @@ struct User: Codable {
     let email: String
     let name: String
     let lastname: String
+    
+    let tenant: Tenant?
+    
     var token: String?
+}
+
+struct Tenant: Codable {
+    let house: House?
+}
+
+struct House: Codable {
+    let condominium_id: Int?
 }

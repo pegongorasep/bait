@@ -55,13 +55,12 @@ private enum TicketsAPI: APIConfiguration {
 // MARK: - API Calls
 extension Tickets {
         
-    static func getTickets(completion: @escaping (Swift.Result<[Complaints], APIError>) -> Void) {
+    static func getTickets(completion: @escaping (Swift.Result<Complaints, APIError>) -> Void) {
         
         let adapter = APIManager.shared.sessionManager.adapter as! TokenAdapter
         print(adapter.getCurrentToken())
         
-        APIManager.shared.request(urlRequest: TicketsAPI.getTickets) { (result: Swift.Result<[Complaints], APIError>) in
-            //result.response?.allHeaderFieldss
+        APIManager.shared.request(urlRequest: TicketsAPI.getTickets) { (result: Swift.Result<Complaints, APIError>) in
             switch result {
                 case .success(let response):
                     completion(.success(response))

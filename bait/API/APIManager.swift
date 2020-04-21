@@ -21,7 +21,7 @@ public extension APIConfiguration {
     var jsonDecoder: JSONDecoder {
         get {
             let jsonDecoder = JSONDecoder()
-            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            jsonDecoder.keyDecodingStrategy = .useDefaultKeys
             return jsonDecoder
         }
     }
@@ -73,7 +73,7 @@ public class APIManager {
                         completion(.success(decodedObject))
                         
                     } catch {
-                        
+                        print(error)
                         completion(.failure(APIError.jsonDecodingError))
                     }
                     
