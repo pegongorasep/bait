@@ -12,13 +12,17 @@ import Alamofire
 public class TokenAdapter: RequestAdapter {
     private let accessToken: String
     
+    public func getCurrentToken() -> String {
+        return accessToken
+    }
+    
     public init(accessToken: String) {
         self.accessToken = accessToken
     }
     
     public func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
         var urlRequest = urlRequest
-        urlRequest.setValue("Bearer " + self.accessToken, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue(self.accessToken, forHTTPHeaderField: "Authorization")
         
         return urlRequest
     }

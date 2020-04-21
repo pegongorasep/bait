@@ -55,6 +55,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 MBProgressHUD.hide(for: self.view, animated: true)
                 
                 if let token = user.token {
+                    Constants.token = token
                     APIManager.shared.sessionManager.adapter = TokenAdapter(accessToken: token)
                 }
                 

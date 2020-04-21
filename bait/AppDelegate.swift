@@ -21,6 +21,10 @@ var window: UIWindow?
         
         IQKeyboardManager.shared.enable = true
         
+        if let token = Constants.token {
+            APIManager.shared.sessionManager.adapter = TokenAdapter(accessToken: token)
+        }
+        
         return true
     }
 

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		B8399270244F7C9E0029F6BD /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B839926F244F7C9E0029F6BD /* TicketsViewController.swift */; };
 		B8399272244F7CDD0029F6BD /* AnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8399271244F7CDD0029F6BD /* AnouncementsViewController.swift */; };
+		B8399274244F838B0029F6BD /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8399273244F838B0029F6BD /* Tickets.swift */; };
+		B8399277244F839E0029F6BD /* TicketsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8399276244F839E0029F6BD /* TicketsAPI.swift */; };
+		B8399279244F96030029F6BD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8399278244F96030029F6BD /* Constants.swift */; };
+		B839927B244F9A1C0029F6BD /* Complaints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B839927A244F9A1C0029F6BD /* Complaints.swift */; };
 		B844ECBB244F67CC00FE8668 /* TokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B844ECBA244F67CC00FE8668 /* TokenAdapter.swift */; };
 		B8AE076F244F37FC00DCEA80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE076E244F37FC00DCEA80 /* AppDelegate.swift */; };
 		B8AE0771244F37FC00DCEA80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE0770244F37FC00DCEA80 /* SceneDelegate.swift */; };
@@ -30,6 +34,10 @@
 		4A237537AE9CD36E74A0BFDA /* Pods_bait.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bait.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B839926F244F7C9E0029F6BD /* TicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
 		B8399271244F7CDD0029F6BD /* AnouncementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnouncementsViewController.swift; sourceTree = "<group>"; };
+		B8399273244F838B0029F6BD /* Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tickets.swift; sourceTree = "<group>"; };
+		B8399276244F839E0029F6BD /* TicketsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsAPI.swift; sourceTree = "<group>"; };
+		B8399278244F96030029F6BD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B839927A244F9A1C0029F6BD /* Complaints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Complaints.swift; sourceTree = "<group>"; };
 		B844ECBA244F67CC00FE8668 /* TokenAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAdapter.swift; sourceTree = "<group>"; };
 		B8AE076B244F37FC00DCEA80 /* bait.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bait.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8AE076E244F37FC00DCEA80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +85,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B8399275244F83900029F6BD /* Tickets */ = {
+			isa = PBXGroup;
+			children = (
+				B8399273244F838B0029F6BD /* Tickets.swift */,
+				B8399276244F839E0029F6BD /* TicketsAPI.swift */,
+			);
+			path = Tickets;
+			sourceTree = "<group>";
+		};
 		B8AE0762244F37FB00DCEA80 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +124,7 @@
 				B8AE076E244F37FC00DCEA80 /* AppDelegate.swift */,
 				B8AE077B244F37FC00DCEA80 /* LaunchScreen.storyboard */,
 				B8AE077E244F37FC00DCEA80 /* Info.plist */,
+				B8399278244F96030029F6BD /* Constants.swift */,
 			);
 			path = bait;
 			sourceTree = "<group>";
@@ -124,8 +142,10 @@
 		B8AE0789244F466C00DCEA80 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B8399275244F83900029F6BD /* Tickets */,
 				B8AE0791244F495D00DCEA80 /* Token */,
 				B8AE0790244F494C00DCEA80 /* User */,
+				B839927A244F9A1C0029F6BD /* Complaints.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -273,9 +293,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8399277244F839E0029F6BD /* TicketsAPI.swift in Sources */,
 				B8AE0785244F415E00DCEA80 /* LogInViewController.swift in Sources */,
+				B8399274244F838B0029F6BD /* Tickets.swift in Sources */,
 				B8AE0773244F37FC00DCEA80 /* CommunityViewController.swift in Sources */,
 				B8AE078B244F468300DCEA80 /* UserAPI.swift in Sources */,
+				B839927B244F9A1C0029F6BD /* Complaints.swift in Sources */,
+				B8399279244F96030029F6BD /* Constants.swift in Sources */,
 				B8AE0793244F49AD00DCEA80 /* ResponseError.swift in Sources */,
 				B8399270244F7C9E0029F6BD /* TicketsViewController.swift in Sources */,
 				B8AE0788244F425F00DCEA80 /* APIManager.swift in Sources */,
