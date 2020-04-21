@@ -13,6 +13,7 @@
 		B8AE0778244F37FC00DCEA80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8AE0776244F37FC00DCEA80 /* Main.storyboard */; };
 		B8AE077A244F37FC00DCEA80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8AE0779244F37FC00DCEA80 /* Assets.xcassets */; };
 		B8AE077D244F37FC00DCEA80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8AE077B244F37FC00DCEA80 /* LaunchScreen.storyboard */; };
+		B8AE0785244F415E00DCEA80 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE0784244F415E00DCEA80 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B8AE0779244F37FC00DCEA80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8AE077C244F37FC00DCEA80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8AE077E244F37FC00DCEA80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8AE0784244F415E00DCEA80 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,11 +58,12 @@
 		B8AE076D244F37FC00DCEA80 /* bait */ = {
 			isa = PBXGroup;
 			children = (
-				B8AE076E244F37FC00DCEA80 /* AppDelegate.swift */,
-				B8AE0770244F37FC00DCEA80 /* SceneDelegate.swift */,
+				B8AE0784244F415E00DCEA80 /* LogInViewController.swift */,
 				B8AE0772244F37FC00DCEA80 /* FirstViewController.swift */,
 				B8AE0776244F37FC00DCEA80 /* Main.storyboard */,
 				B8AE0779244F37FC00DCEA80 /* Assets.xcassets */,
+				B8AE0770244F37FC00DCEA80 /* SceneDelegate.swift */,
+				B8AE076E244F37FC00DCEA80 /* AppDelegate.swift */,
 				B8AE077B244F37FC00DCEA80 /* LaunchScreen.storyboard */,
 				B8AE077E244F37FC00DCEA80 /* Info.plist */,
 			);
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8AE0785244F415E00DCEA80 /* LogInViewController.swift in Sources */,
 				B8AE0773244F37FC00DCEA80 /* FirstViewController.swift in Sources */,
 				B8AE076F244F37FC00DCEA80 /* AppDelegate.swift in Sources */,
 				B8AE0771244F37FC00DCEA80 /* SceneDelegate.swift in Sources */,
