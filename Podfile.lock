@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (5.1.0)
+  - JWTDecode (2.4.1)
+  - MBProgressHUD (1.2.0)
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.1)
+  - JWTDecode (~> 2.4)
+  - MBProgressHUD
+  - SVProgressHUD
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - JWTDecode
+    - MBProgressHUD
+    - SVProgressHUD
+
+SPEC CHECKSUMS:
+  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  JWTDecode: 4bd4da0cdf0f8154fd467fa48499f34ec057fb88
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: 5a34894b0a1ca8578dea0dfb310430d101c77d99
+
+COCOAPODS: 1.9.1

@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="-933" y="741"/>
         </scene>
-        <!--View Controller-->
+        <!--Log In View Controller-->
         <scene sceneID="8bu-SL-O6z">
             <objects>
-                <viewController id="qtM-E3-Trz" sceneMemberID="viewController">
+                <viewController id="qtM-E3-Trz" customClass="LogInViewController" customModule="bait" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FzL-7F-MSS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,6 +91,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6L-Ib-STT">
                                 <rect key="frame" x="30" y="597" width="354" height="30"/>
                                 <state key="normal" title="Iniciar Sesión"/>
+                                <connections>
+                                    <action selector="login:" destination="qtM-E3-Trz" eventType="touchUpInside" id="R4K-12-rMO"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZlH-n8-b58">
                                 <rect key="frame" x="30" y="454" width="354" height="34"/>
@@ -129,12 +132,14 @@
                         <viewLayoutGuide key="safeArea" id="woH-Id-Nvn"/>
                     </view>
                     <connections>
-                        <segue destination="49e-Tb-3d3" kind="show" id="Caz-3V-p47"/>
+                        <outlet property="emailLabe" destination="ZlH-n8-b58" id="KgA-sz-HZv"/>
+                        <outlet property="passwordLabel" destination="gdk-MI-C4F" id="VRh-Ge-J7Q"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="loggedInSegue" id="Caz-3V-p47"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8XJ-zJ-PbW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2560.8695652173915" y="0.6696428571428571"/>
+            <point key="canvasLocation" x="-933" y="0.0"/>
         </scene>
         <!--Reservaciones-->
         <scene sceneID="iNK-IB-MJD">
