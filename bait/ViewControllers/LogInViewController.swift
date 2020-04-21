@@ -17,7 +17,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func login(_ sender: Any) {
         guard let email = emailLabe.text, email.isValidEmail, let password = passwordLabel.text, !password.isEmpty else {
-            SVProgressHUD.showError(withStatus: "Ingresa un usuario y contraseña")
+            SVProgressHUD.showError(withStatus: "Ingresa un usuario y contraseña válidos")
             return
         }
         
@@ -45,21 +45,28 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func login(email: String, password: String) {
-        //MBProgressHUD.showAdded(to: view, animated: true)
+        MBProgressHUD.showAdded(to: view, animated: true)
         
         User.login(email: email, password: password) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let user):
+                MBProgressHUD.hide(for: self.view, animated: true)
+                
                 if let token = user.token {
                     APIManager.shared.sessionManager.adapter = TokenAdapter(accessToken: token)
                 }
-                self.performSegue(withIdentifier: "loggedInSegue", sender: nil)
+                
+                let TabBarVC = self.storyboard!.instantiateViewController(withIdentifier: "TabBarVC") as! UITabBarController
+                TabBarVC.modalPresentationStyle = .fullScreen
+                TabBarVC.selectedIndex = 1
+                self.present(TabBarVC, animated: true, completion: nil)
+                
                 return
                 
-            case .failure(let error):
-                _ = error
+            case .failure( _):
+                MBProgressHUD.hide(for: self.view, animated: true)
                 SVProgressHUD.showError(withStatus: "Error al iniciar sesión.")
             }
         }

@@ -15,32 +15,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="131.5" y="399.5" width="151" height="43"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="110" y="450.5" width="194.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HqP-to-Bpa">
+                                <rect key="frame" x="20" y="76" width="374" height="32"/>
+                                <segments>
+                                    <segment title="Tickets"/>
+                                    <segment title="Anuncios"/>
+                                </segments>
+                            </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8p1-3k-UwC">
+                                <rect key="frame" x="0.0" y="107" width="414" height="652"/>
+                                <connections>
+                                    <segue destination="aFh-Qm-fbw" kind="embed" id="kEe-iP-iso"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="8p1-3k-UwC" secondAttribute="bottom" id="30B-U1-edE"/>
+                            <constraint firstItem="HqP-to-Bpa" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="ELf-4i-ErL"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="8p1-3k-UwC" secondAttribute="trailing" id="GVj-eQ-Fgm"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="HqP-to-Bpa" secondAttribute="trailing" constant="20" id="UYL-N4-aMv"/>
+                            <constraint firstItem="8p1-3k-UwC" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="Uwd-Qf-5N9"/>
+                            <constraint firstItem="8p1-3k-UwC" firstAttribute="top" secondItem="HqP-to-Bpa" secondAttribute="bottom" id="iUD-tW-rez"/>
+                            <constraint firstItem="HqP-to-Bpa" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="20" id="ziM-4T-zIH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Comunidad" image="second" id="acW-dT-cKf"/>
+                    <navigationItem key="navigationItem" id="Ej4-6e-NPQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="970" y="0.0"/>
+            <point key="canvasLocation" x="2230.434782608696" y="0.0"/>
+        </scene>
+        <!--Comunidad-->
+        <scene sceneID="ZGU-Rh-OCc">
+            <objects>
+                <navigationController id="htQ-Lj-4KX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Comunidad" image="second" id="0BL-To-I0x"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nz3-CQ-sLd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="MTT-Ab-WbY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oEf-O2-DPp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1193" y="0.0"/>
         </scene>
         <!--Inicio-->
         <scene sceneID="wSQ-mm-HTj">
@@ -98,7 +121,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZlH-n8-b58">
                                 <rect key="frame" x="30" y="424" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                 <connections>
                                     <outlet property="delegate" destination="qtM-E3-Trz" id="01x-bV-nGU"/>
                                 </connections>
@@ -182,7 +205,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVC" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="8Qh-9V-OT0"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -191,7 +214,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="htQ-Lj-4KX" kind="relationship" relationship="viewControllers" id="THh-zy-v6l"/>
                         <segue destination="ZcR-pK-G8k" kind="relationship" relationship="viewControllers" id="gyG-p9-YDM"/>
                         <segue destination="ido-N7-VFr" kind="relationship" relationship="viewControllers" id="9FM-fS-16D"/>
                         <segue destination="3Ad-wW-RG4" kind="relationship" relationship="viewControllers" id="Z9E-bu-ESj"/>
@@ -200,6 +223,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hko-Sc-k09">
+            <objects>
+                <viewController id="aFh-Qm-fbw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xxv-pu-IyV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="652"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WcI-ge-Ezd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3172" y="0.0"/>
         </scene>
     </scenes>
     <resources>
