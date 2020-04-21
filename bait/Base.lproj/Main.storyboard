@@ -10,7 +10,7 @@
         <!--Comunidad-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="bait" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="CommunityViewController" customModule="bait" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,12 +21,12 @@
                                     <segment title="Tickets"/>
                                     <segment title="Anuncios"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentValueChanged:" destination="9pv-A4-QxB" eventType="valueChanged" id="g4U-E3-u8M"/>
+                                </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8p1-3k-UwC">
                                 <rect key="frame" x="0.0" y="107" width="414" height="652"/>
-                                <connections>
-                                    <segue destination="aFh-Qm-fbw" kind="embed" id="kEe-iP-iso"/>
-                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -43,10 +43,68 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Comunidad" image="second" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" id="Ej4-6e-NPQ"/>
+                    <connections>
+                        <outlet property="containerView" destination="8p1-3k-UwC" id="y4x-FA-8Jj"/>
+                        <outlet property="segmentControl" destination="HqP-to-Bpa" id="b9b-Rm-7J5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2230.434782608696" y="0.0"/>
+        </scene>
+        <!--Anouncements View Controller-->
+        <scene sceneID="vni-xE-9Sg">
+            <objects>
+                <viewController storyboardIdentifier="AnouncementsViewController" id="Sql-8s-Yg5" customClass="AnouncementsViewController" customModule="bait" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9H0-0V-3e1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjV-Wv-vEp">
+                                <rect key="frame" x="179" y="437.5" width="56" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cjV-Wv-vEp" firstAttribute="centerY" secondItem="9H0-0V-3e1" secondAttribute="centerY" id="8Gj-bX-skb"/>
+                            <constraint firstItem="cjV-Wv-vEp" firstAttribute="centerX" secondItem="9H0-0V-3e1" secondAttribute="centerX" id="nwZ-gY-BPp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="soY-0G-ZKh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sSV-2q-mOD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3064" y="392"/>
+        </scene>
+        <!--Tickets View Controller-->
+        <scene sceneID="vs2-4a-4nZ">
+            <objects>
+                <viewController storyboardIdentifier="TicketsViewController" id="acV-L1-t9I" customClass="TicketsViewController" customModule="bait" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BIh-5H-Mfv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHY-8H-rfQ">
+                                <rect key="frame" x="180.5" y="437.5" width="53.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iHY-8H-rfQ" firstAttribute="centerY" secondItem="BIh-5H-Mfv" secondAttribute="centerY" id="7e0-a6-5d8"/>
+                            <constraint firstItem="iHY-8H-rfQ" firstAttribute="centerX" secondItem="BIh-5H-Mfv" secondAttribute="centerX" id="CgP-DT-z5Q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vxk-bF-Ubm"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HFn-Yu-w3k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3064" y="-285"/>
         </scene>
         <!--Comunidad-->
         <scene sceneID="ZGU-Rh-OCc">
@@ -95,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-933" y="741"/>
+            <point key="canvasLocation" x="0.0" y="1464"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="8bu-SL-O6z">
@@ -184,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H17-qk-LCe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-933" y="-717"/>
+            <point key="canvasLocation" x="0.0" y="-1455"/>
         </scene>
         <!--Perfil-->
         <scene sceneID="rrA-Zr-nyA">
@@ -223,20 +281,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="hko-Sc-k09">
-            <objects>
-                <viewController id="aFh-Qm-fbw" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xxv-pu-IyV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="652"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WcI-ge-Ezd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3172" y="0.0"/>
         </scene>
     </scenes>
     <resources>
