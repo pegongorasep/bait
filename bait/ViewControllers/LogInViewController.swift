@@ -11,23 +11,37 @@ import SVProgressHUD
 import MBProgressHUD
 import JWTDecode
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailLabe: UITextField!
     @IBOutlet weak var passwordLabel: UITextField!
     
     @IBAction func login(_ sender: Any) {
         guard let email = emailLabe.text, email.isValidEmail, let password = passwordLabel.text, !password.isEmpty else {
+            SVProgressHUD.showError(withStatus: "Ingresa un usuario y contraseña")
             return
         }
         
-        for textField in [emailLabe, passwordLabel] {
-            if textField!.canResignFirstResponder {
-                textField?.resignFirstResponder()
-                break
-            }
-        }
-        
         login(email: email, password: password)
+    }
+    
+    override func viewDidLoad() {
+           super.viewDidLoad()
+           
+           #if DEBUG
+               emailLabe.text = "prueba@dacodes.com.mx"
+               passwordLabel.text = "dacodes2020"
+           #endif
+
+       }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailLabe {
+            textField.resignFirstResponder()
+            passwordLabel.becomeFirstResponder()
+        } else if textField == passwordLabel {
+            textField.resignFirstResponder()
+        }
+        return true
     }
     
     private func login(email: String, password: String) {
@@ -37,35 +51,19 @@ class LogInViewController: UIViewController {
             guard let self = self else { return }
             
             switch result {
-            case .success(let token):
-                guard let userId = self.getUserId(from: token.access) else {
-                    MBProgressHUD.hide(for: self.view, animated: true)
-                    SVProgressHUD.showError(withStatus: "Error al iniciar sesión.")
-                    
-                    return
+            case .success(let user):
+                if let token = user.token {
+                    APIManager.shared.sessionManager.adapter = TokenAdapter(accessToken: token)
                 }
-                
                 self.performSegue(withIdentifier: "loggedInSegue", sender: nil)
+                return
                 
             case .failure(let error):
-                let error = error
-                MBProgressHUD.hide(for: self.view, animated: true)
+                _ = error
                 SVProgressHUD.showError(withStatus: "Error al iniciar sesión.")
             }
         }
     }
-    
-    func getUserId(from token: String) -> Int? {
-        do {
-            let jwt = try decode(jwt: token)
-            return jwt.claim(name: "user_id").integer
-        } catch {
-            print(error)
-            return nil
-        }
-        return nil
-    }
-    
 }
 
 extension String {

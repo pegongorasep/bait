@@ -1,11 +1,13 @@
 PODS:
-  - Alamofire (5.1.0)
+  - Alamofire (4.9.1)
+  - IQKeyboardManagerSwift (6.5.5)
   - JWTDecode (2.4.1)
   - MBProgressHUD (1.2.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.1)
+  - Alamofire (~> 4.9.1)
+  - IQKeyboardManagerSwift
   - JWTDecode (~> 2.4)
   - MBProgressHUD
   - SVProgressHUD
@@ -13,16 +15,18 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - IQKeyboardManagerSwift
     - JWTDecode
     - MBProgressHUD
     - SVProgressHUD
 
 SPEC CHECKSUMS:
-  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   JWTDecode: 4bd4da0cdf0f8154fd467fa48499f34ec057fb88
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 5a34894b0a1ca8578dea0dfb310430d101c77d99
+PODFILE CHECKSUM: 58e2920127197f62c8b433d8e866f57da7c2a7fa
 
 COCOAPODS: 1.9.1

@@ -37,7 +37,7 @@ public enum APIError: Error {
 public class APIManager {
     static public let shared = APIManager()
     public var host = "https://api-bait.herokuapp.com/api/v1/"
-    public let sessionManager = Alamofire.Session.default
+    public let sessionManager = Alamofire.SessionManager.default
 
     private init() {}
 
@@ -58,7 +58,20 @@ public class APIManager {
                     }
                     do {
                         let decodedObject = try urlRequest.jsonDecoder.decode(T.self, from: value)
+                        
+                        if let headers = response.response?.allHeaderFields as? [String: String]{
+                            let token = headers["Authorization"]
+                            if let _ = decodedObject as? User {
+                                var user = decodedObject as? User
+                                user?.token = token
+                                completion(.success(user as! T))
+                            } else {
+                                completion(.success(decodedObject))
+                            }
+                        }
+                        
                         completion(.success(decodedObject))
+                        
                     } catch {
                         
                         completion(.failure(APIError.jsonDecodingError))
@@ -66,7 +79,7 @@ public class APIManager {
                     
                     
                 case .failure(let error):
-                    completion(.failure(.serverError(error: error.errorDescription!)))
+                    completion(.failure(.serverError(error: error.localizedDescription)))
                 }
         }
     }

@@ -54,13 +54,16 @@ private enum UserAPI: APIConfiguration {
 // MARK: - API Calls
 extension User {
         
-    static func login(email: String, password: String, completion: @escaping (Swift.Result<Token, APIError>) -> Void) {
-        let parameters: Parameters = [
-            "email": email,
-            "password": password
+    static func login(email: String, password: String, completion: @escaping (Swift.Result<User, APIError>) -> Void) {
+        let parameters = [
+            "user": [
+                "email": email,
+                "password": password,
+            ]
         ]
         
-        APIManager.shared.request(urlRequest: UserAPI.login(parameters: parameters)) { (result: Swift.Result<Token, APIError>) in
+        APIManager.shared.request(urlRequest: UserAPI.login(parameters: parameters)) { (result: Swift.Result<User, APIError>) in
+            //result.response?.allHeaderFieldss
             switch result {
                 case .success(let response):
                     completion(.success(response))

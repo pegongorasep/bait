@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B844ECBB244F67CC00FE8668 /* TokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B844ECBA244F67CC00FE8668 /* TokenAdapter.swift */; };
 		B8AE076F244F37FC00DCEA80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE076E244F37FC00DCEA80 /* AppDelegate.swift */; };
 		B8AE0771244F37FC00DCEA80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE0770244F37FC00DCEA80 /* SceneDelegate.swift */; };
 		B8AE0773244F37FC00DCEA80 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE0772244F37FC00DCEA80 /* FirstViewController.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		04A4D0D3BAA0CEABA794A64B /* Pods-bait.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bait.release.xcconfig"; path = "Target Support Files/Pods-bait/Pods-bait.release.xcconfig"; sourceTree = "<group>"; };
 		4A237537AE9CD36E74A0BFDA /* Pods_bait.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bait.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B844ECBA244F67CC00FE8668 /* TokenAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAdapter.swift; sourceTree = "<group>"; };
 		B8AE076B244F37FC00DCEA80 /* bait.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bait.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8AE076E244F37FC00DCEA80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8AE0770244F37FC00DCEA80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				B8AE0787244F425F00DCEA80 /* APIManager.swift */,
 				B8AE0792244F49AD00DCEA80 /* ResponseError.swift */,
+				B844ECBA244F67CC00FE8668 /* TokenAdapter.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				B8AE0771244F37FC00DCEA80 /* SceneDelegate.swift in Sources */,
 				B8AE078D244F46F800DCEA80 /* User.swift in Sources */,
 				B8AE078F244F494400DCEA80 /* Token.swift in Sources */,
+				B844ECBB244F67CC00FE8668 /* TokenAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8836K8YWN7;
+				DEVELOPMENT_TEAM = FN2H7XT3XC;
 				INFOPLIST_FILE = bait/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -438,7 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8836K8YWN7;
+				DEVELOPMENT_TEAM = FN2H7XT3XC;
 				INFOPLIST_FILE = bait/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
