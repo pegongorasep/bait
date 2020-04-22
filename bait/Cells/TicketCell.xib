@@ -30,33 +30,33 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3k-gE-f3O">
-                        <rect key="frame" x="15" y="44" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="15" y="44" width="37.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnI-bA-7H1">
-                        <rect key="frame" x="298" y="39" width="42" height="25"/>
+                        <rect key="frame" x="297.5" y="39" width="37.5" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="aeg-gB-CEk"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vun-bB-Vd7">
-                        <rect key="frame" x="355" y="44" width="30" height="15"/>
+                        <rect key="frame" x="350" y="45.5" width="35" height="12"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="2GW-JC-O7x"/>
-                            <constraint firstAttribute="height" constant="15" id="jET-oI-8by"/>
+                            <constraint firstAttribute="width" constant="35" id="2GW-JC-O7x"/>
+                            <constraint firstAttribute="height" constant="12" id="jET-oI-8by"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="Vun-bB-Vd7" firstAttribute="centerY" secondItem="CnI-bA-7H1" secondAttribute="centerY" id="2gE-7U-Xug"/>
                     <constraint firstAttribute="trailing" secondItem="Vun-bB-Vd7" secondAttribute="trailing" constant="15" id="6Wl-7r-1j2"/>
                     <constraint firstAttribute="trailing" secondItem="gNZ-YS-eZb" secondAttribute="trailing" constant="15" id="AE5-NQ-CfJ"/>
-                    <constraint firstItem="dOG-d7-yao" firstAttribute="top" secondItem="Vun-bB-Vd7" secondAttribute="bottom" constant="20" id="Bpr-jA-O6G"/>
                     <constraint firstItem="gNZ-YS-eZb" firstAttribute="leading" secondItem="tth-RG-oCF" secondAttribute="leading" constant="15" id="Ci2-Ol-rSB"/>
                     <constraint firstItem="r3k-gE-f3O" firstAttribute="leading" secondItem="tth-RG-oCF" secondAttribute="leading" constant="15" id="EQf-zt-jG1"/>
                     <constraint firstItem="gNZ-YS-eZb" firstAttribute="top" secondItem="tth-RG-oCF" secondAttribute="top" constant="15" id="Jkp-0Q-Rhx"/>

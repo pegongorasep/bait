@@ -48,25 +48,27 @@ class CommunityViewController: UIViewController {
         super.viewDidLoad()
         self.setupView()
         
-        navigationItem.title = "Comunidad"
+        Constants.setNavigationTitle(of: self, with: "Comunidad")
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         
         let title = NSMutableAttributedString(string: "Crear ticket de ayuda", attributes:[
             .font: UIFont.systemFont(ofSize: 10.0) ])
-        let firstLabel = UILabel()
-        firstLabel.attributedText = title
+        let label = UILabel()
+        label.attributedText = title
+        label.textColor = UIColor.white
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(userSettings))
-        firstLabel.addGestureRecognizer(tap)
-        firstLabel.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(createTicket))
+        label.addGestureRecognizer(tap)
+        label.isUserInteractionEnabled = true
         
-        let addTicket = UIBarButtonItem(customView: firstLabel)
+        let addTicket = UIBarButtonItem(customView: label)
         navigationItem.rightBarButtonItem  = addTicket
     }
         
-    @objc func userSettings(){
+    @objc func createTicket(){
         print("clicked")
         
-        let CreateTicketVC = self.storyboard!.instantiateViewController(withIdentifier: "TicketsViewController") as! TicketsViewController
+        let CreateTicketVC = self.storyboard!.instantiateViewController(withIdentifier: "CreateTicketViewController") as! CreateTicketViewController
         CreateTicketVC.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(CreateTicketVC, animated: true)
     }

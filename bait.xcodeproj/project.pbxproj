@@ -17,7 +17,10 @@
 		B8399281244FADF10029F6BD /* TicketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8399280244FADF10029F6BD /* TicketCell.xib */; };
 		B8399285244FC65B0029F6BD /* Anouncements.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8399284244FC65B0029F6BD /* Anouncements.swift */; };
 		B8399287244FC66A0029F6BD /* AnouncementsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8399286244FC66A0029F6BD /* AnouncementsAPI.swift */; };
+		B839928A244FCCA50029F6BD /* CreateTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8399289244FCCA50029F6BD /* CreateTicketViewController.swift */; };
 		B844ECBB244F67CC00FE8668 /* TokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B844ECBA244F67CC00FE8668 /* TokenAdapter.swift */; };
+		B8788220244FED1200DA0D4B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878821F244FED1200DA0D4B /* ProfileViewController.swift */; };
+		B8788222245004AD00DA0D4B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8788221245004AD00DA0D4B /* NavigationController.swift */; };
 		B8AE076F244F37FC00DCEA80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE076E244F37FC00DCEA80 /* AppDelegate.swift */; };
 		B8AE0771244F37FC00DCEA80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE0770244F37FC00DCEA80 /* SceneDelegate.swift */; };
 		B8AE0773244F37FC00DCEA80 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE0772244F37FC00DCEA80 /* CommunityViewController.swift */; };
@@ -46,7 +49,10 @@
 		B8399280244FADF10029F6BD /* TicketCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketCell.xib; sourceTree = "<group>"; };
 		B8399284244FC65B0029F6BD /* Anouncements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anouncements.swift; sourceTree = "<group>"; };
 		B8399286244FC66A0029F6BD /* AnouncementsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnouncementsAPI.swift; sourceTree = "<group>"; };
+		B8399289244FCCA50029F6BD /* CreateTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTicketViewController.swift; sourceTree = "<group>"; };
 		B844ECBA244F67CC00FE8668 /* TokenAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAdapter.swift; sourceTree = "<group>"; };
+		B878821F244FED1200DA0D4B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B8788221245004AD00DA0D4B /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		B8AE076B244F37FC00DCEA80 /* bait.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bait.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8AE076E244F37FC00DCEA80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8AE0770244F37FC00DCEA80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +216,9 @@
 				B8AE0772244F37FC00DCEA80 /* CommunityViewController.swift */,
 				B839926F244F7C9E0029F6BD /* TicketsViewController.swift */,
 				B8399271244F7CDD0029F6BD /* AnouncementsViewController.swift */,
+				B8399289244FCCA50029F6BD /* CreateTicketViewController.swift */,
+				B878821F244FED1200DA0D4B /* ProfileViewController.swift */,
+				B8788221245004AD00DA0D4B /* NavigationController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -341,12 +350,15 @@
 				B8AE0793244F49AD00DCEA80 /* ResponseError.swift in Sources */,
 				B8399270244F7C9E0029F6BD /* TicketsViewController.swift in Sources */,
 				B8AE0788244F425F00DCEA80 /* APIManager.swift in Sources */,
+				B8788222245004AD00DA0D4B /* NavigationController.swift in Sources */,
 				B8AE076F244F37FC00DCEA80 /* AppDelegate.swift in Sources */,
+				B839928A244FCCA50029F6BD /* CreateTicketViewController.swift in Sources */,
 				B8AE0771244F37FC00DCEA80 /* SceneDelegate.swift in Sources */,
 				B8399272244F7CDD0029F6BD /* AnouncementsViewController.swift in Sources */,
 				B8AE078D244F46F800DCEA80 /* User.swift in Sources */,
 				B8399285244FC65B0029F6BD /* Anouncements.swift in Sources */,
 				B8399287244FC66A0029F6BD /* AnouncementsAPI.swift in Sources */,
+				B8788220244FED1200DA0D4B /* ProfileViewController.swift in Sources */,
 				B8AE078F244F494400DCEA80 /* Token.swift in Sources */,
 				B844ECBB244F67CC00FE8668 /* TokenAdapter.swift in Sources */,
 			);
