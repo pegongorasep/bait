@@ -21,6 +21,7 @@
 		B844ECBB244F67CC00FE8668 /* TokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B844ECBA244F67CC00FE8668 /* TokenAdapter.swift */; };
 		B8788220244FED1200DA0D4B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B878821F244FED1200DA0D4B /* ProfileViewController.swift */; };
 		B8788222245004AD00DA0D4B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8788221245004AD00DA0D4B /* NavigationController.swift */; };
+		B88F81B32450980900BC50A1 /* MultipartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88F81B22450980900BC50A1 /* MultipartModel.swift */; };
 		B8AE076F244F37FC00DCEA80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE076E244F37FC00DCEA80 /* AppDelegate.swift */; };
 		B8AE0771244F37FC00DCEA80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE0770244F37FC00DCEA80 /* SceneDelegate.swift */; };
 		B8AE0773244F37FC00DCEA80 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE0772244F37FC00DCEA80 /* CommunityViewController.swift */; };
@@ -53,6 +54,7 @@
 		B844ECBA244F67CC00FE8668 /* TokenAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAdapter.swift; sourceTree = "<group>"; };
 		B878821F244FED1200DA0D4B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B8788221245004AD00DA0D4B /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		B88F81B22450980900BC50A1 /* MultipartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartModel.swift; sourceTree = "<group>"; };
 		B8AE076B244F37FC00DCEA80 /* bait.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bait.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8AE076E244F37FC00DCEA80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8AE0770244F37FC00DCEA80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				B8AE0787244F425F00DCEA80 /* APIManager.swift */,
 				B8AE0792244F49AD00DCEA80 /* ResponseError.swift */,
 				B844ECBA244F67CC00FE8668 /* TokenAdapter.swift */,
+				B88F81B22450980900BC50A1 /* MultipartModel.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				B8AE0771244F37FC00DCEA80 /* SceneDelegate.swift in Sources */,
 				B8399272244F7CDD0029F6BD /* AnouncementsViewController.swift in Sources */,
 				B8AE078D244F46F800DCEA80 /* User.swift in Sources */,
+				B88F81B32450980900BC50A1 /* MultipartModel.swift in Sources */,
 				B8399285244FC65B0029F6BD /* Anouncements.swift in Sources */,
 				B8399287244FC66A0029F6BD /* AnouncementsAPI.swift in Sources */,
 				B8788220244FED1200DA0D4B /* ProfileViewController.swift in Sources */,

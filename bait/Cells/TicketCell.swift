@@ -12,6 +12,7 @@ class TicketCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var statusColorLabel: UIImageView!
+    @IBOutlet weak var arrowImage: UIImageView!
     
     
     override func awakeFromNib() {
@@ -21,6 +22,9 @@ class TicketCell: UITableViewCell {
         statusColorLabel.backgroundColor = UIColor.red
         statusColorLabel.layer.cornerRadius = 8.0
         statusColorLabel.clipsToBounds = true
+        
+        arrowImage.image = arrowImage.image?.withRenderingMode(.alwaysTemplate)
+        arrowImage.tintColor = UIColor.black
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -14,6 +14,7 @@ import JWTDecode
 class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailLabe: UITextField!
     @IBOutlet weak var passwordLabel: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     @IBAction func login(_ sender: Any) {
         guard let email = emailLabe.text, email.isValidEmail, let password = passwordLabel.text, !password.isEmpty else {
@@ -32,6 +33,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginButton.layer.cornerRadius = 5
+        loginButton.clipsToBounds = true
         
         #if DEBUG
            emailLabe.text = "prueba@dacodes.com.mx"
