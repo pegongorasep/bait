@@ -46,7 +46,6 @@ class AnouncementsViewController: UIViewController {
 
                 switch result {
                 case .success(let tickets):
-                    
                     if tickets.bulletins.count > 0 {
                         
                         if tickets.bulletins.count > 9 {
@@ -64,9 +63,6 @@ class AnouncementsViewController: UIViewController {
                     } else {
                         self.pagination!.hasMoreItems = false
                     }
-                    
-                    
-                    self.anouncements = tickets
                     
                     DispatchQueue.main.async {
                         self.announcementsTableView.reloadData()
