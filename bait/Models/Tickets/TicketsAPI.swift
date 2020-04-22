@@ -62,37 +62,73 @@ private enum TicketsAPI: APIConfiguration {
 // MARK: - API Calls
 extension Tickets {
         
-    static func createTicket(title: String, description: String, condominium_id: String, user_id: String, image: String, completion: @escaping (Swift.Result<Tickets, APIError>) -> Void) {
+    static func createTicket(title: String, description: String, condominium_id: String, user_id: String, image: UIImage?, completion: @escaping (Swift.Result<Tickets, APIError>) -> Void) {
         
-        let parameters: Parameters = [
+        var parameters: Parameters = [
             "title": title,
             "description": description,
             "condominium_id": condominium_id,
             "user_id":  user_id,
-            "complaint_state_id": 3,
-            "file_count": 0,
-            "file[0]": 0,
+            "complaint_state_id": 3
         ]
         
-        APIManager.shared.request(urlRequest: TicketsAPI.createTicket(parameters: parameters)) { (result: Swift.Result<Tickets, APIError>) in
-            switch result {
-                case .success(let response):
-                    completion(.success(response))
-                case .failure(let error):
-                    switch error {
-                        case .badRequestData(let data):
-                            do {
-                                let decoder = JSONDecoder()
-                                let errorMessage = try decoder.decode(ResponseError.self, from: data)
-                                completion(.failure(.responseErrorMessage(message: errorMessage.errors[0])))
-                            } catch let parsingError {
-                                print(parsingError)
+        var imageFileData: [MultipartModel]?
+        
+        if let picture = image {
+            parameters["file_count"] = 1
+            
+            let imageData = picture.jpegData(compressionQuality: 0.4)!
+            let userId = Constants.user?.user.id
+            let timestamp = Date().timeIntervalSinceNow
+            let fileName = "\(userId!)\(timestamp).jpeg"
+            imageFileData = [MultipartModel(data: imageData, name: fileName, key: "file[1]", mimeType: "image/jpeg")]
+            
+            APIManager.shared.upload(urlRequest: TicketsAPI.createTicket(parameters: parameters), parameters: parameters, multipartForms: imageFileData!) { (result: Swift.Result<Tickets, APIError>) in
+                    switch result {
+                        case .success(let response):
+                            completion(.success(response))
+                        case .failure(let error):
+                            switch error {
+                                case .badRequestData(let data):
+                                    do {
+                                        let decoder = JSONDecoder()
+                                        let errorMessage = try decoder.decode(ResponseError.self, from: data)
+                                        completion(.failure(.responseErrorMessage(message: errorMessage.errors[0])))
+                                    } catch let parsingError {
+                                        print(parsingError)
+                                    }
+                                default:
+                                    completion(.failure(error))
+                                    break
                             }
-                        default:
-                            completion(.failure(error))
-                            break
                     }
+                }
+
+        } else {
+            parameters["file_count"] = 0
+            parameters["file[0]"] = 0
+        
+            APIManager.shared.request(urlRequest: TicketsAPI.createTicket(parameters: parameters)) { (result: Swift.Result<Tickets, APIError>) in
+                switch result {
+                    case .success(let response):
+                        completion(.success(response))
+                    case .failure(let error):
+                        switch error {
+                            case .badRequestData(let data):
+                                do {
+                                    let decoder = JSONDecoder()
+                                    let errorMessage = try decoder.decode(ResponseError.self, from: data)
+                                    completion(.failure(.responseErrorMessage(message: errorMessage.errors[0])))
+                                } catch let parsingError {
+                                    print(parsingError)
+                                }
+                            default:
+                                completion(.failure(error))
+                                break
+                        }
+                }
             }
+            
         }
     }
     

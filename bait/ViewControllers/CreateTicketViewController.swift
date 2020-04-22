@@ -11,29 +11,38 @@ import MBProgressHUD
 import SVProgressHUD
 
 class CreateTicketViewController: UIViewController {
+    var isPictureSelected = false
+    
     @IBOutlet weak var titleLabel: UITextField!
     @IBOutlet weak var descriptionLabel: UITextField!
     @IBOutlet weak var picture: UIImageView!
     @IBAction func sendTicket(_ sender: Any) {
         if let title = titleLabel.text, !title.isEmpty, let description = descriptionLabel.text, !description.isEmpty, let condominium_id = Constants.user?.user.tenant?.house?.condominium_id, let user_id = Constants.user?.user.id {
                 
-                MBProgressHUD.showAdded(to: view, animated: true)
-                Tickets.createTicket(title: title, description: description, condominium_id: String(condominium_id), user_id: String(user_id), image: "") { [weak self] result in
-                    
-                    guard let self = self else { return }
-                    MBProgressHUD.hide(for: self.view, animated: true)
-                    print(result)
-                    
-                    switch result {
-                    case .success( _):
-                            SVProgressHUD.showSuccess(withStatus: "Ticket creado con éxito")
-                            self.navigationController?.popViewController(animated: true)
-                            
-                        case .failure(let error):
-                            SVProgressHUD.showError(withStatus: "Error al crear ticket")
-                            print(error)
-                    }
+            let photo: UIImage?
+            if isPictureSelected {
+                photo = picture.image
+            } else {
+                photo = nil
+            }
+            
+            MBProgressHUD.showAdded(to: view, animated: true)
+            Tickets.createTicket(title: title, description: description, condominium_id: String(condominium_id), user_id: String(user_id), image: photo) { [weak self] result in
+                
+                guard let self = self else { return }
+                MBProgressHUD.hide(for: self.view, animated: true)
+                print(result)
+                
+                switch result {
+                case .success( _):
+                        SVProgressHUD.showSuccess(withStatus: "Ticket creado con éxito")
+                        self.navigationController?.popViewController(animated: true)
+                        
+                    case .failure(let error):
+                        SVProgressHUD.showError(withStatus: "Error al crear ticket")
+                        print(error)
                 }
+            }
             
         } else {
             SVProgressHUD.showError(withStatus: "Datos no válidos")
@@ -69,6 +78,7 @@ class CreateTicketViewController: UIViewController {
 extension CreateTicketViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            isPictureSelected = true
             self.picture.image = img
             self.dismiss(animated: true, completion: nil)
         } else {

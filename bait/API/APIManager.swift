@@ -83,4 +83,47 @@ public class APIManager {
                 }
         }
     }
+    
+    
+    public func upload<T: Codable>(urlRequest: APIConfiguration, parameters: Parameters?, multipartForms: [MultipartModel], completion: @escaping (Swift.Result<T, APIError> ) -> Void) {
+        
+        sessionManager.upload(multipartFormData: { (multipart) in
+            
+            if let params = parameters {
+                for(key, value) in params {
+                    let valueString = "\(value)"
+                    guard let data = valueString.data(using: .utf8) else {continue}
+                    multipart.append(data, withName: key)
+                }
+            }
+            
+            for model in multipartForms {
+                multipart.append(model.data, withName: model.key)
+            }
+            
+        }, with: urlRequest) { (encodingResult) in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                upload.validate().responseData { response in
+                    switch response.result {
+                    case .success(let value):
+                        do {
+                            let decodedObject = try urlRequest.jsonDecoder.decode(T.self, from: value)
+                            completion(.success(decodedObject))
+                        } catch {
+                            print("JSON decode error: \(error)")
+                            completion(.failure(APIError.jsonDecodingError))
+                        }
+                    case .failure(let error):
+                        print(error)
+                        completion(.failure(.serverError(error: error.localizedDescription)))
+                    }
+                }
+                
+            case .failure(let error):
+                print(error)
+                completion(.failure(.serverError(error: error.localizedDescription)))
+            }
+        }
+    }
 }
