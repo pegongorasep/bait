@@ -9,7 +9,7 @@
 import Foundation
 
 struct Anouncements: Codable {
-    let bulletins: [Bulletins]
+    var bulletins: [Bulletins]
 }
 
 struct Bulletins: Codable {

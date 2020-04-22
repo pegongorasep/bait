@@ -11,7 +11,7 @@ import Foundation
 import Alamofire
 
 private enum AnouncementsAPI: APIConfiguration {
-    case getAnouncements
+    case getAnouncements(parameters: Parameters)
     
     var method: HTTPMethod {
         switch self {
@@ -23,7 +23,7 @@ private enum AnouncementsAPI: APIConfiguration {
     var path: String {
         switch self {
         case .getAnouncements:
-            return "bulletins?page=1"
+            return "bulletins"
         }
     }
     
@@ -37,8 +37,8 @@ private enum AnouncementsAPI: APIConfiguration {
         
     var parameters: Parameters? {
         switch self {
-        case .getAnouncements:
-            return nil
+        case .getAnouncements(let parameters):
+            return parameters
         }
     }
     
@@ -55,9 +55,13 @@ private enum AnouncementsAPI: APIConfiguration {
 // MARK: - API Calls
 extension Anouncements {
         
-    static func getAnouncements(completion: @escaping (Swift.Result<Anouncements, APIError>) -> Void) {
+    static func getAnouncements(page: Int, completion: @escaping (Swift.Result<Anouncements, APIError>) -> Void) {
                 
-        APIManager.shared.request(urlRequest: AnouncementsAPI.getAnouncements) { (result: Swift.Result<Anouncements, APIError>) in
+        let parameters: Parameters = [
+            "page":page
+        ]
+        
+        APIManager.shared.request(urlRequest: AnouncementsAPI.getAnouncements(parameters: parameters)) { (result: Swift.Result<Anouncements, APIError>) in
             switch result {
                 case .success(let response):
                     completion(.success(response))

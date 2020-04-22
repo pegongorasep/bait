@@ -27,15 +27,19 @@ class TicketsViewController: UIViewController {
         ticketsTableView.register(UINib(nibName: "TicketCell", bundle: nil), forCellReuseIdentifier: "TicketCell")
         ticketsTableView.allowsSelection = true
         
-        refreshControl.addTarget(self, action: #selector (loadTickets), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector (loadTicketsStart), for: .valueChanged)
         ticketsTableView.addSubview(refreshControl)
         
-        self.refreshControl.beginRefreshing()
         pagination = PaginationInfo(currentPage: 1, nextPage: 2, hasMoreItems: false)
         loadTickets(page: 1)
     }
     
-    @objc func loadTickets(page: Int) {
+    @objc func loadTicketsStart() {
+        loadTickets(page: 1)
+    }
+    
+    @objc func loadTickets(page: Int = 1) {
+        self.refreshControl.beginRefreshing()
         isFetchingData = true
         
         Tickets.getTickets(page: page) { result in
