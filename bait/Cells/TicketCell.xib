@@ -24,7 +24,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNZ-YS-eZb">
-                        <rect key="frame" x="15" y="15" width="42" height="21"/>
+                        <rect key="frame" x="15" y="15" width="370" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -36,7 +36,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnI-bA-7H1">
-                        <rect key="frame" x="278" y="39" width="42" height="25"/>
+                        <rect key="frame" x="298" y="39" width="42" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="aeg-gB-CEk"/>
                         </constraints>
@@ -45,9 +45,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vun-bB-Vd7">
-                        <rect key="frame" x="335" y="44" width="50" height="15"/>
+                        <rect key="frame" x="355" y="44" width="30" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="2GW-JC-O7x"/>
+                            <constraint firstAttribute="width" constant="30" id="2GW-JC-O7x"/>
                             <constraint firstAttribute="height" constant="15" id="jET-oI-8by"/>
                         </constraints>
                     </imageView>
@@ -55,6 +55,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Vun-bB-Vd7" secondAttribute="trailing" constant="15" id="6Wl-7r-1j2"/>
+                    <constraint firstAttribute="trailing" secondItem="gNZ-YS-eZb" secondAttribute="trailing" constant="15" id="AE5-NQ-CfJ"/>
                     <constraint firstItem="dOG-d7-yao" firstAttribute="top" secondItem="Vun-bB-Vd7" secondAttribute="bottom" constant="20" id="Bpr-jA-O6G"/>
                     <constraint firstItem="gNZ-YS-eZb" firstAttribute="leading" secondItem="tth-RG-oCF" secondAttribute="leading" constant="15" id="Ci2-Ol-rSB"/>
                     <constraint firstItem="r3k-gE-f3O" firstAttribute="leading" secondItem="tth-RG-oCF" secondAttribute="leading" constant="15" id="EQf-zt-jG1"/>
