@@ -24,15 +24,20 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         login(email: email, password: password)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if Constants.isLoggedIn {
+            goToMainViewController(vc: self)
+        }
+    }
+    
     override func viewDidLoad() {
-           super.viewDidLoad()
-           
-           #if DEBUG
-               emailLabe.text = "prueba@dacodes.com.mx"
-               passwordLabel.text = "dacodes2020"
-           #endif
-
-       }
+        super.viewDidLoad()
+        
+        #if DEBUG
+           emailLabe.text = "prueba@dacodes.com.mx"
+           passwordLabel.text = "dacodes2020"
+        #endif
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailLabe {
@@ -52,26 +57,45 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             
             switch result {
             case .success(let user):
-                MBProgressHUD.hide(for: self.view, animated: true)
                 
                 if let token = user.token {
                     Constants.token = token
                     APIManager.shared.sessionManager.adapter = TokenAdapter(accessToken: token)
                 }
                 
-                let TabBarVC = self.storyboard!.instantiateViewController(withIdentifier: "TabBarVC") as! UITabBarController
-                TabBarVC.modalPresentationStyle = .fullScreen
-                TabBarVC.selectedIndex = 1
-                self.present(TabBarVC, animated: true, completion: nil)
-                
+                User.getUserData { result in
+                    switch result {
+                        case .success(let user):
+                            MBProgressHUD.hide(for: self.view, animated: true)
+                            
+                            Constants.isLoggedIn = true
+                            Constants.user = user
+                            
+                            goToMainViewController(vc: self)
+                        
+                    case .failure(let error):
+                        print(error)
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        SVProgressHUD.showError(withStatus: "Error al iniciar sesión.")
+                    }
+                }
+                                
                 return
                 
-            case .failure( _):
+            case .failure(let error):
+                print(error)
                 MBProgressHUD.hide(for: self.view, animated: true)
                 SVProgressHUD.showError(withStatus: "Error al iniciar sesión.")
             }
         }
     }
+}
+
+func goToMainViewController(vc: UIViewController) {
+    let TabBarVC = vc.storyboard!.instantiateViewController(withIdentifier: "TabBarVC") as! UITabBarController
+    TabBarVC.modalPresentationStyle = .fullScreen
+    TabBarVC.selectedIndex = 1
+    vc.present(TabBarVC, animated: true, completion: nil)
 }
 
 extension String {

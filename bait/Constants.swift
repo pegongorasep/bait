@@ -15,7 +15,7 @@ struct Constants {
         set { UserDefaults.standard.set(newValue, forKey: "isLoggedIn") }
     }
         
-    static var user: User? {
+    static var user: UserData? {
         get { return loadObject(key: "user") }
         set { return saveObject(newValue, key: "user") }
     }
@@ -37,6 +37,14 @@ struct Constants {
         } else {
             return nil
         }
+    }
+    
+    static func setNavigationTitle(of viewController: UIViewController, with title: String) {
+        let navLabel = UILabel()
+        navLabel.text = title
+        navLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
+        navLabel.textColor = UIColor.white
+        viewController.navigationItem.titleView = navLabel
     }
 }
 

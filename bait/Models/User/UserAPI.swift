@@ -11,11 +11,14 @@ import Alamofire
 
 private enum UserAPI: APIConfiguration {
     case login(parameters: Parameters)
+    case getUserData
     
     var method: HTTPMethod {
         switch self {
         case .login:
             return .post
+        case .getUserData:
+            return .get
         }
     }
     
@@ -23,13 +26,15 @@ private enum UserAPI: APIConfiguration {
         switch self {
         case .login:
             return "login/"
+        case .getUserData:
+            return "me/"
         }
     }
     
     
     var encoding: ParameterEncoding {
         switch self {
-        case .login:
+        case .login, .getUserData:
             return URLEncoding.default
         }
     }
@@ -38,6 +43,8 @@ private enum UserAPI: APIConfiguration {
         switch self {
         case .login(let parameters):
             return parameters
+        case .getUserData:
+            return nil
         }
     }
     
@@ -54,6 +61,31 @@ private enum UserAPI: APIConfiguration {
 // MARK: - API Calls
 extension User {
         
+    static func getUserData(completion: @escaping (Swift.Result<UserData, APIError>) -> Void) {
+        
+        APIManager.shared.request(urlRequest: UserAPI.getUserData) { (result: Swift.Result<UserData, APIError>) in
+            //result.response?.allHeaderFieldss
+            switch result {
+                case .success(let response):
+                    completion(.success(response))
+                case .failure(let error):
+                    switch error {
+                        case .badRequestData(let data):
+                            do {
+                                let decoder = JSONDecoder()
+                                let errorMessage = try decoder.decode(ResponseError.self, from: data)
+                                completion(.failure(.responseErrorMessage(message: errorMessage.errors[0])))
+                            } catch let parsingError {
+                                print(parsingError)
+                            }
+                        default:
+                            completion(.failure(error))
+                            break
+                    }
+            }
+        }
+    }
+    
     static func login(email: String, password: String, completion: @escaping (Swift.Result<User, APIError>) -> Void) {
         let parameters = [
             "user": [

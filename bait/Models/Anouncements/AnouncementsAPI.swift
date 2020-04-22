@@ -56,10 +56,7 @@ private enum AnouncementsAPI: APIConfiguration {
 extension Anouncements {
         
     static func getAnouncements(completion: @escaping (Swift.Result<Anouncements, APIError>) -> Void) {
-        
-        let adapter = APIManager.shared.sessionManager.adapter as! TokenAdapter
-        print(adapter.getCurrentToken())
-        
+                
         APIManager.shared.request(urlRequest: AnouncementsAPI.getAnouncements) { (result: Swift.Result<Anouncements, APIError>) in
             switch result {
                 case .success(let response):
