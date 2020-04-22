@@ -9,7 +9,7 @@
 import Foundation
 
 struct Complaints: Codable {
-    let complaints: [ComplaintItem]
+    var complaints: [ComplaintItem]
 }
 
 struct ComplaintItem: Codable {

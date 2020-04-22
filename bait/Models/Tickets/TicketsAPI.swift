@@ -11,7 +11,7 @@ import Foundation
 import Alamofire
 
 private enum TicketsAPI: APIConfiguration {
-    case getTickets
+    case getTickets(parameters: Parameters)
     case createTicket(parameters: Parameters)
     
     var method: HTTPMethod {
@@ -26,7 +26,7 @@ private enum TicketsAPI: APIConfiguration {
     var path: String {
         switch self {
         case .getTickets:
-            return "complaints?page=1"
+            return "complaints"
         case .createTicket:
             return "complaints"
         }
@@ -42,8 +42,8 @@ private enum TicketsAPI: APIConfiguration {
         
     var parameters: Parameters? {
         switch self {
-            case .getTickets:
-                return nil
+            case .getTickets(let parameters):
+                return parameters
             case .createTicket(let parameters):
                 return parameters
         }
@@ -132,9 +132,13 @@ extension Tickets {
         }
     }
     
-    static func getTickets(completion: @escaping (Swift.Result<Complaints, APIError>) -> Void) {
+    static func getTickets(page: Int, completion: @escaping (Swift.Result<Complaints, APIError>) -> Void) {
+
+        let parameters: Parameters = [
+            "page":page
+        ]
         
-        APIManager.shared.request(urlRequest: TicketsAPI.getTickets) { (result: Swift.Result<Complaints, APIError>) in
+        APIManager.shared.request(urlRequest: TicketsAPI.getTickets(parameters: parameters)) { (result: Swift.Result<Complaints, APIError>) in
             switch result {
                 case .success(let response):
                     completion(.success(response))

@@ -14,6 +14,10 @@ class TicketsViewController: UIViewController {
     @IBOutlet weak var ticketsTableView: UITableView!
     private let refreshControl = UIRefreshControl()
     
+    var pagination: PaginationInfo?
+    var isFetchingData = false
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,17 +31,38 @@ class TicketsViewController: UIViewController {
         ticketsTableView.addSubview(refreshControl)
         
         self.refreshControl.beginRefreshing()
-        loadTickets()
+        pagination = PaginationInfo(currentPage: 1, nextPage: 2, hasMoreItems: false)
+        loadTickets(page: 1)
     }
     
-    @objc func loadTickets() {
-        Tickets.getTickets { result in
+    @objc func loadTickets(page: Int) {
+        isFetchingData = true
+        
+        Tickets.getTickets(page: page) { result in
             self.refreshControl.endRefreshing()
+            self.isFetchingData = false
 
             switch result {
             case .success(let tickets):
-                self.tickets = tickets
+                if tickets.complaints.count > 0 {
+                    
+                    if tickets.complaints.count > 9 {
+                        self.pagination?.hasMoreItems = true
+                    }
+                    self.pagination?.currentPage = page
+                    self.pagination?.nextPage = page + 1
+                    
+                    if page > 1 {
+                        self.tickets?.complaints.append(contentsOf: tickets.complaints)
+                    } else {
+                        self.tickets = tickets
+                    }
+                    
+                } else {
+                    self.pagination!.hasMoreItems = false
+                }
                 
+                                
                 DispatchQueue.main.async {
                     self.ticketsTableView.reloadData()
                 }
@@ -82,5 +107,16 @@ extension TicketsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.statusColorLabel.backgroundColor = color
         
         return cell
+    }
+}
+
+extension TicketsViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView.scrollsToTop && scrollView.contentOffset.y > 1.0 {
+            guard !isFetchingData, let pagination = pagination, pagination.hasMoreItems else { return }
+            
+            self.ticketsTableView.tableFooterView?.isHidden = false
+            loadTickets(page: pagination.nextPage)
+        }
     }
 }
